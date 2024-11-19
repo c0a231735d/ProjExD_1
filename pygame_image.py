@@ -10,14 +10,18 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    bg_img2 = pg.transform.flip(bg_img, True,False)
     koukaton = pg.image.load("fig/3.png")
     koukaton = pg.transform.flip(koukaton, True,False)
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x = tmr%800
-        screen.blit(bg_img, [-x, 0])
+        x = -(tmr%3200)
+        screen.blit(bg_img, [x, 0])
+        screen.blit(bg_img2, [tmr+1600, 0])
+        screen.blit(bg_img, [tmr+3200, 3200])
+        screen.blit(bg_img2, [tmr+4800, 0])
         screen.blit(koukaton, [100,300])
         pg.display.update()
         tmr += 1        
