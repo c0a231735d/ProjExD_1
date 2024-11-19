@@ -24,7 +24,7 @@ def main():
         if key_lst[pg.K_UP]:    
             move_y = -1
         elif key_lst[pg.K_DOWN]:  
-            move_y = 1
+            move_y = 1 
         elif key_lst[pg.K_RIGHT]: 
             move_x = 1
         koukaton_rect.move_ip(move_x,move_y)
