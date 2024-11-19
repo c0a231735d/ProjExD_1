@@ -18,16 +18,16 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
-
         key_lst = pg.key.get_pressed()
+        
+        move_x, move_y = -1,0
         if key_lst[pg.K_UP]:    
-            koukaton_rect.move_ip(0, -1)
-        if key_lst[pg.K_DOWN]:  
-            koukaton_rect.move_ip(0, 1)
-        if key_lst[pg.K_LEFT]:  
-            koukaton_rect.move_ip(-1, 0)
-        if key_lst[pg.K_RIGHT]: 
-            koukaton_rect.move_ip(1, 0)
+            move_y = -1
+        elif key_lst[pg.K_DOWN]:  
+            move_y = 1
+        elif key_lst[pg.K_RIGHT]: 
+            move_x = 1
+        koukaton_rect.move_ip(move_x,move_y)
         
         x = -(tmr % 3200)
         screen.blit(bg_img, [x, 0])
